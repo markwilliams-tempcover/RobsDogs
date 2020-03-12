@@ -3,20 +3,21 @@ using Ui.Entities;
 
 namespace Ui.Data
 {
-	public class DogOwnerRepository
-	{
-		public List<DogOwner> GetAllDogOwners()
-		{
-			var dogOwnerList = new List<DogOwner>
-			{
-				new DogOwner
-				{
-					OwnerName = "Rob",
-					DogName = "Willow"
-				}
-			};
+    public interface IDogOwnerRepository
+    {
+        IEnumerable<DogOwner> GetAllDogOwners();
+    }
 
-			return dogOwnerList;
-		} 
-	}
+    public class DogOwnerRepository : IDogOwnerRepository
+    {
+        public IEnumerable<DogOwner> GetAllDogOwners()
+        {
+            var dogOwnerList = new List<DogOwner>
+            {
+                new DogOwner("Rob", new []{ "Willow","Nook","Sox" })
+            };
+
+            return dogOwnerList;
+        }
+    }
 }

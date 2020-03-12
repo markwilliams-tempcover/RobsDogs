@@ -1,8 +1,16 @@
-﻿namespace Ui.Entities
+﻿using System.Collections.Generic;
+
+namespace Ui.Entities
 {
 	public class DogOwner
 	{
-		public string OwnerName { get; set; }
-		public string DogName { get; set; }
+		public DogOwner(string ownerName, string[] dogNames)
+		{
+			OwnerName = ownerName;
+			DogNames = dogNames;
+		}
+
+		public string OwnerName { get; }
+		public IEnumerable<string> DogNames { get; }
 	}
 }

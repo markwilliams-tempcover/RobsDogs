@@ -5,6 +5,6 @@ namespace Ui.Models
 	public class DogOwnerViewModel
 	{
 		public string OwnerName { get; set; }
-		public List<string> DogNames { get; set; }
+		public IEnumerable<string> DogNames { get; set; }
 	}
 }

@@ -33,7 +33,14 @@
 	{
 		<tr>
 			<td>@dogOwner.OwnerName</td>
-			<td>@dogOwner.DogNames.Single()</td>
+			<td>
+				<ul>
+					@foreach (var dogName in dogOwner.DogNames)
+					{
+						<li>@dogName</li>
+					}
+				</ul>
+			</td>
 		</tr>
 	}
 	</tbody>

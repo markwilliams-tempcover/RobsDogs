@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Ui.Controllers;
+using Ui.Services;
 
 namespace Ui.Tests.Controllers
 {
@@ -11,7 +13,8 @@ namespace Ui.Tests.Controllers
 		public void Index()
 		{
 			// Arrange
-			RobsDogsController controller = new RobsDogsController();
+			var mockDogService = new Mock<IDogOwnerService>();
+			RobsDogsController controller = new RobsDogsController(mockDogService.Object);
 
 			// Act
 			ViewResult result = controller.Index() as ViewResult;

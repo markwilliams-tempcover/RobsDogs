@@ -101,6 +101,8 @@
     <Compile Include="Controllers\RobsDogsControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
+    <Compile Include="Services\DogOwnerServiceTests.cs" />
+    <Compile Include="ViewModelMappers\DogOwnerViewModelMapperTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
