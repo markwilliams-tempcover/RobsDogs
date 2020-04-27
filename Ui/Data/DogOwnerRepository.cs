@@ -5,17 +5,16 @@ namespace Ui.Data
 {
 	public class DogOwnerRepository
 	{
-		public List<DogOwner> GetAllDogOwners()
+		public virtual List<DogOwner> GetAllDogOwners()
 		{
 			var dogOwnerList = new List<DogOwner>
 			{
 				new DogOwner
 				{
 					OwnerName = "Rob",
-					DogName = "Willow"
+					OwnerId = 1
 				}
 			};
-
 			return dogOwnerList;
 		} 
 	}

@@ -6,10 +6,16 @@ namespace Ui.Services
 {
 	public class DogOwnerService
 	{
-		public List<DogOwner> GetAllDogOwners()
+		public DogOwnerService(DogOwnerRepository dogOwnerRepository)
 		{
-			var dogOwnerRepository = new DogOwnerRepository();
-			var dogOwnerList = dogOwnerRepository.GetAllDogOwners();
+			_DogOwnerRepository = dogOwnerRepository;
+		}
+
+		private DogOwnerRepository _DogOwnerRepository;
+
+		public virtual List<DogOwner> GetAllDogOwners()
+		{
+			var dogOwnerList = _DogOwnerRepository.GetAllDogOwners();
 
 			return dogOwnerList;
 		}

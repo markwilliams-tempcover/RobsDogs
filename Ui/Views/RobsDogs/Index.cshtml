@@ -33,7 +33,7 @@
 	{
 		<tr>
 			<td>@dogOwner.OwnerName</td>
-			<td>@dogOwner.DogNames.Single()</td>
+			<td>@string.Join(", ", dogOwner.DogNames)</td>
 		</tr>
 	}
 	</tbody>
