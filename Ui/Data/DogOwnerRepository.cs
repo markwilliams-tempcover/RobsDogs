@@ -10,7 +10,7 @@ namespace Ui.Data
                 new DogOwner
                 {
                     OwnerName = "Rob",
-                    DogName = "Willow"
+                    DogNameList =  new List<string>() { "Willow", "Nook", "Sox" }
                 }
             };
 
