@@ -186,6 +186,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
+    <Compile Include="Data\IDogOwnerRepository.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
     <Compile Include="DependencyResolution\DefaultRegistry.cs" />
     <Compile Include="DependencyResolution\IoC.cs" />
@@ -202,7 +203,9 @@
     <Compile Include="Models\DogOwnerViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DogOwnerService.cs" />
+    <Compile Include="Services\IDogOwnerService.cs" />
     <Compile Include="ViewModelMappers\DogOwnerViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\IDogOwnerViewModelMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
