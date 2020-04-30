@@ -1,6 +1,8 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Ui.Controllers;
+using Ui.ViewModelMappers;
 
 namespace Ui.Tests.Controllers
 {
@@ -10,16 +12,18 @@ namespace Ui.Tests.Controllers
 		[TestMethod]
 		public void Index()
 		{
-			// Arrange
-			//RobsDogsController controller = new RobsDogsController();
+            var dogOwnerViewModelMapper = new Mock<IDogOwnerViewModelMapper>();
+            //Arrange
+            RobsDogsController controller = new RobsDogsController(dogOwnerViewModelMapper.Object);
 
-			//// Act
-			//ViewResult result = controller.Index() as ViewResult;
+            //Act
+            ViewResult result = controller.Index() as ViewResult;
 
-			//// Assert
-			//Assert.IsNotNull(result);
-			// Should be testing/verifying call to GetAllDogOwners and subsequent methods down the stack.
-			// Moq is installed to help you.
-		}
+            //Assert
+            Assert.IsNotNull(result);
+            //Should be testing / verifying call to GetAllDogOwners and subsequent methods down the stack.
+            //Moq is installed to help you.
+
+        }
 	}
 }
