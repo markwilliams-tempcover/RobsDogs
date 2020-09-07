@@ -1,8 +1,11 @@
-﻿namespace Ui.Entities
+﻿using System.Collections.Generic;
+using Ui.Entities;
+
+namespace Ui.Entities
 {
 	public class DogOwner
 	{
-		public string OwnerName { get; set; }
-		public string DogName { get; set; }
+		public Owner Owner { get; set; }
+		public List<Dog> Dogs { get; set; }
 	}
 }

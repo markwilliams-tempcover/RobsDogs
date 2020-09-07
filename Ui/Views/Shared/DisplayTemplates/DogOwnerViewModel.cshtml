@@ -1,0 +1,20 @@
+﻿@model Ui.Models.DogOwnerViewModel
+
+@for (var idx = 0; idx < Model.DogNames.Count; idx++)
+{
+  if (idx == 0)
+  {
+  <tr>
+    <td>@Model.OwnerName</td>
+    <td>@Model.DogNames[idx]</td>
+  </tr>
+  }
+  else
+  {
+    <tr>
+      <td></td>
+      <td>@Model.DogNames[idx]</td>
+    </tr>
+  }
+}
+    
