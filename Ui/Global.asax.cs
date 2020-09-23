@@ -8,6 +8,7 @@ using System.Web.Routing;
 
 namespace Ui
 {
+    //[assembly:InternalsVisibleTo("MyTests")]
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()

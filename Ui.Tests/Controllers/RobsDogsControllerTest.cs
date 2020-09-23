@@ -1,17 +1,25 @@
 ﻿using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using Ui.Controllers;
+using Ui.ViewModelMappers;
 
 namespace Ui.Tests.Controllers
 {
 	[TestClass]
 	public class RobsDogsControllerTest
 	{
+		public IMock<IDogOwnerViewModelMapper> mockPetOwnerVMMapper;
+		[TestInitialize]
+		public void Setup()
+		{
+			mockPetOwnerVMMapper = new Mock<IDogOwnerViewModelMapper>();
+	}
 		[TestMethod]
 		public void Index()
 		{
 			// Arrange
-			RobsDogsController controller = new RobsDogsController();
+			RobsDogsController controller = new RobsDogsController(mockPetOwnerVMMapper.Object);
 
 			// Act
 			ViewResult result = controller.Index() as ViewResult;

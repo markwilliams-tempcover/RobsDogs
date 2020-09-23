@@ -5,25 +5,33 @@ using Ui.Services;
 
 namespace Ui.ViewModelMappers
 {
-	public class DogOwnerViewModelMapper
-	{
-		public DogOwnerListViewModel GetAllDogOwners()
-		{
-			var dogOwnerService = new DogOwnerService();
-			var dogOwners = dogOwnerService.GetAllDogOwners();
-			var dogOwnerListViewModel = new DogOwnerListViewModel
-			{
-				DogOwnerViewModels = dogOwners.Select(e => new DogOwnerViewModel
-				{
-					OwnerName = e.OwnerName,
-					DogNames = new List<string>
-					{
-						e.DogName
-					}
-				}).ToList()
-			};
+    public interface IDogOwnerViewModelMapper
+    {
+        DogOwnerListViewModel GetAllDogOwners();
+    }
 
-			return dogOwnerListViewModel;
-		} 
-	}
+    public class DogOwnerViewModelMapper : IDogOwnerViewModelMapper
+    {
+        IDogOwnerService _dogOwnerService;
+        public DogOwnerViewModelMapper(IDogOwnerService dogOwnerService)
+        {
+            _dogOwnerService = dogOwnerService;
+
+        }
+        public DogOwnerListViewModel GetAllDogOwners()
+        { 
+            var dogOwners = _dogOwnerService.GetAllDogOwners();
+            var dogOwnerListViewModel = new DogOwnerListViewModel
+            {
+                DogOwnerViewModels = dogOwners.Select(e => new DogOwnerViewModel
+                {
+                    OwnerName = e.Owner.Name,
+                    Pets = new List<PetViewModel>
+                    { }
+                }).ToList()
+            };
+
+            return dogOwnerListViewModel;
+        }
+    }
 }

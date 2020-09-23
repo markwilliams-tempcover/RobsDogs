@@ -2,9 +2,9 @@
 
 namespace Ui.Models
 {
-	public class DogOwnerViewModel
+    public class DogOwnerViewModel
 	{
 		public string OwnerName { get; set; }
-		public List<string> DogNames { get; set; }
+		public List<PetViewModel> Pets { get; set; }
 	}
 }
