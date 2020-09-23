@@ -195,6 +195,7 @@
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
     <Compile Include="Entities\Pet.cs" />
+    <Compile Include="PetOwnerConstants.cs" />
     <Compile Include="Models\DogOwnerListViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RobsDogsController.cs" />

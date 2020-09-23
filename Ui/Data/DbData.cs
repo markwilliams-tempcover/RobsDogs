@@ -16,6 +16,7 @@ namespace Ui.Data
             Pets = new List<Pet> { new Pet { Name = "Willow", Age = 4, PetId = 1, PetType = 1 }, new Pet { Name = "Nook", Age = 1, PetId = 2, PetType = 1 } };
             PetOwners = new List<PetOwner> { new PetOwner { DogOwnerId = 1, Owner = Owners.FirstOrDefault(), Pets = new List<Pet>(Pets) } };
         }
+        public bool SaveChanges() { return true; }
     }
 
     public interface IDbData
@@ -23,5 +24,6 @@ namespace Ui.Data
         List<Owner> Owners { get; set; }
         List<Pet> Pets { get; set; }
         List<PetOwner> PetOwners { get; set; }
+        bool SaveChanges();
     }
 }
