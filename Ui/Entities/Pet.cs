@@ -8,7 +8,5 @@ namespace Ui.Entities
         public string Name { get; set; }
         public short Age { get; set; }
 		public int PetType { get; set; }
-    }
-
-
+    } 
 }

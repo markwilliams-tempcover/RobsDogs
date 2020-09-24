@@ -194,12 +194,13 @@
     <Compile Include="DependencyResolution\IoC.cs" />
     <Compile Include="DependencyResolution\StructureMapDependencyScope.cs" />
     <Compile Include="DependencyResolution\StructureMapScopeModule.cs" />
+    <Compile Include="Entities\Owner.cs" />
     <Compile Include="Entities\Pet.cs" />
     <Compile Include="PetOwnerConstants.cs" />
     <Compile Include="Models\DogOwnerListViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RobsDogsController.cs" />
-    <Compile Include="Data\DogOwnerRepository.cs" />
+    <Compile Include="Data\PetOwnerRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

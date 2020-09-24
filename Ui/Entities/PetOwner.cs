@@ -5,13 +5,8 @@ namespace Ui.Entities
 {
     public class PetOwner
     {
-        public short DogOwnerId { get; set; }
-        public Owner Owner { get; set; }
-        public List<Pet> Pets { get; set; }
-    }
-    public class Owner
-    {
+        public int PetOwnerId { get; set; }
         public short OwnerId { get; set; }
-        public string Name { get; set; }
+        public int PetId { get; set; } 
     }
 }

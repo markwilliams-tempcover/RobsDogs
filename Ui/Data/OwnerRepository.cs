@@ -32,7 +32,7 @@ namespace Ui.Data
             return _dbData.SaveChanges();
         }
 
-        public Owner UpdateOwner(Ui.Entities.Owner updateOwner)
+        public Owner UpdateOwner(Owner updateOwner)
         {
             if (updateOwner == null)
             {
@@ -47,16 +47,17 @@ namespace Ui.Data
             return _dbData.Owners.Single(x => x.OwnerId == updateOwner.OwnerId);
         }
 
-        public bool DeleteOwner(int ownerId)
+        public bool DeleteOwner(short ownerId)
         {
             var ownerFound = _dbData.Owners.SingleOrDefault(x => x.OwnerId == ownerId);
             if (ownerFound == null)
             {
                 throw new InvalidOperationException(PetOwnerConstants.ErrorMessages.Owner.DataNotFound);
             }
-            if (_dbData.PetOwners != null && _dbData.PetOwners.Exists(x => x.Owner.OwnerId == ownerId))
+            //delete call from service layer too
+            if (_dbData.PetOwners != null && _dbData.PetOwners.Exists(x => x.OwnerId == ownerId))
             {
-                _dbData.PetOwners.RemoveAll(x => x.Owner.OwnerId == ownerId);
+                _dbData.PetOwners.RemoveAll(x => x.OwnerId == ownerId);
             }
             return _dbData.Owners.Remove(ownerFound) && _dbData.SaveChanges();
 
@@ -74,7 +75,7 @@ namespace Ui.Data
     {
         bool AddOwner(Ui.Entities.Owner newOwner);
         Owner UpdateOwner(Ui.Entities.Owner updateOwner);
-        bool DeleteOwner(int ownerId);
+        bool DeleteOwner(short ownerId);
         List<Owner> GetAllOwner();
     }
 }

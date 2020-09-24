@@ -6,8 +6,8 @@ namespace Ui.Services
 {
     public class DogOwnerService : IDogOwnerService
     {
-        IDogOwnerRepository _dogOwnerRepository;
-        public DogOwnerService(IDogOwnerRepository dogOwnerRepository)
+        IPetOwnerRepository _dogOwnerRepository;
+        public DogOwnerService(IPetOwnerRepository dogOwnerRepository)
         {
             _dogOwnerRepository = dogOwnerRepository;
         }

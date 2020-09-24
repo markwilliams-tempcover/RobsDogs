@@ -25,7 +25,7 @@ namespace Ui.ViewModelMappers
             {
                 DogOwnerViewModels = dogOwners.Select(e => new DogOwnerViewModel
                 {
-                    OwnerName = e.Owner.Name,
+                    //OwnerName = e.Owner.Name,
                     Pets = new List<PetViewModel>
                     { }
                 }).ToList()

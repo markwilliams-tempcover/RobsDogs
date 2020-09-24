@@ -98,7 +98,7 @@ namespace Ui.Tests.Data
             var existingOwner = new Owner { Name = "ExsitingUser", OwnerId = 1 };
             var existingOwner2 = new Owner { Name = "ExsitingUser2", OwnerId = 2 };
             var existingPet = new Pet { Name = "Pet2", Age = 1, PetId = 1, PetType = 1 };
-            var existingPetOwner = new PetOwner { DogOwnerId = 1, Owner = existingOwner, Pets = new List<Pet> { existingPet }};
+            var existingPetOwner = new PetOwner { PetOwnerId = 1, OwnerId = existingOwner.OwnerId, PetId = existingPet.PetId};
             mockData.Setup(x => x.Owners).Returns(new List<Owner> { existingOwner, existingOwner2 });
             mockData.Setup(x => x.PetOwners).Returns(new List<PetOwner> { existingPetOwner }).Verifiable();
             mockData.Setup(x => x.SaveChanges()).Returns(true);
