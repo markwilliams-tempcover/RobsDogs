@@ -5,15 +5,15 @@ namespace Ui.Controllers
 {
     public class RobsDogsController : Controller
     {
-        IDogOwnerViewModelMapper _dogOwnerVMMapper;
-        public RobsDogsController(IDogOwnerViewModelMapper dogOwnerVMMapper)
+        IPetOwnerViewModelMapper _dogOwnerVMMapper;
+        public RobsDogsController(IPetOwnerViewModelMapper dogOwnerVMMapper)
         {
             _dogOwnerVMMapper = dogOwnerVMMapper;
         }
         // GET: RobsDogs
         public ActionResult Index()
         { 
-	        var dogOwnerListViewModel = _dogOwnerVMMapper.GetAllDogOwners();
+	        var dogOwnerListViewModel = _dogOwnerVMMapper.GetAllPetOwners(null,null);
 
             return View(dogOwnerListViewModel);
         }

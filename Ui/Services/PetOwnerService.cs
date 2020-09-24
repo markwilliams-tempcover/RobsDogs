@@ -22,7 +22,7 @@ namespace Ui.Services
             var dbPetOwners = new List<Ui.Entities.PetOwner>();
             if (pageNumber.HasValue && pageSize.HasValue)
             {
-                dbPetOwners =_dogOwnerRepository.GetAllPetOwners(pageSize.Value,pageNumber.Value);
+                dbPetOwners = _dogOwnerRepository.GetAllPetOwners(pageSize.Value, pageNumber.Value);
             }
             else
             {
@@ -33,11 +33,9 @@ namespace Ui.Services
             {
                 return petOwnersList;
             }
-            petOwnersList = dbPetOwners.Join(
-                _ownerRepository.GetAllOwner(),
-                petOwner => petOwner.OwnerId,
-                owner => owner.OwnerId,
-                (petOwner, owner) => new PetOwnerModel
+            petOwnersList = _ownerRepository.GetAllOwner()
+                .Where(owner => dbPetOwners.Any(petOwner => petOwner.OwnerId == owner.OwnerId))
+                .Select(owner=>  new PetOwnerModel
                 {
                     OwnerId = owner.OwnerId,
                     PetOwnerName = owner.Name
@@ -54,7 +52,7 @@ namespace Ui.Services
                         PetType = (PetType)pet.PetType,
                         PetId = pet.PetId
                     }).ToList();
-            } 
+            }
             return petOwnersList;
         }
     }

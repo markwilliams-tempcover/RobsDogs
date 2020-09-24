@@ -9,11 +9,11 @@ namespace Ui.Tests.Controllers
 	[TestClass]
 	public class RobsDogsControllerTest
 	{
-		public IMock<IDogOwnerViewModelMapper> mockPetOwnerVMMapper;
+		public IMock<IPetOwnerViewModelMapper> mockPetOwnerVMMapper;
 		[TestInitialize]
 		public void Setup()
 		{
-			mockPetOwnerVMMapper = new Mock<IDogOwnerViewModelMapper>();
+			mockPetOwnerVMMapper = new Mock<IPetOwnerViewModelMapper>();
 	}
 		[TestMethod]
 		public void Index()

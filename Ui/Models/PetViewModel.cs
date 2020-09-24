@@ -1,4 +1,6 @@
-﻿namespace Ui.Models
+﻿using Ui.Services;
+
+namespace Ui.Models
 {
     public class PetViewModel
     {

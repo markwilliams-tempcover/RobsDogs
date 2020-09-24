@@ -12,14 +12,36 @@ namespace Ui.Tests.Data
     [TestClass]
     public class OwnerRepositoryTests
     {
-        public Mock<IDbData> mockData;
+        public Mock<IDbContext> mockData;
         public OwnerRepository OwnerRepo;
         [TestInitialize]
         public void Setup()
         {
-            mockData = new Mock<IDbData>();
+            mockData = new Mock<IDbContext>();
             OwnerRepo = new OwnerRepository(mockData.Object);
         }
+
+        #region GetAllOwners
+        [TestMethod]
+        public void GetAllOwnerSReturnEmptyListOfOwnerEntities()
+        {
+            mockData.Setup(x => x.Owners).Returns(new List<Owner>());
+            var result = OwnerRepo.GetAllOwner();
+            result.Should().BeOfType<List<Owner>>();
+            result.Count.Should().Be(0);
+        }
+        [TestMethod]
+        public void GetAllOwnerSReturnListOfOwnerEntities()
+        {
+            var existingOwner = new Owner { Name = "Owner1", OwnerId = 1 };
+            var existingOwner2  = new Owner { Name = "Owner2", OwnerId = 2 };
+            mockData.Setup(x => x.Owners).Returns(new List<Owner> { existingOwner, existingOwner2 });
+            var result = OwnerRepo.GetAllOwner();
+            result.Should().BeOfType<List<Owner>>();
+            result.Count.Should().BeGreaterThan(0);
+        }
+        #endregion
+
         #region AddOwner
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException), "OwnerRepo")]
@@ -120,3 +142,4 @@ namespace Ui.Tests.Data
         #endregion
     }
 }
+

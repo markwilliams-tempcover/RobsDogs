@@ -186,7 +186,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\StructuremapMvc.cs" />
-    <Compile Include="Data\DbData.cs" />
+    <Compile Include="Data\DbContext.cs" />
     <Compile Include="Data\OwnerRepository.cs" />
     <Compile Include="Data\PetRepository.cs" />
     <Compile Include="DependencyResolution\ControllerConvention.cs" />
@@ -197,7 +197,7 @@
     <Compile Include="Entities\Owner.cs" />
     <Compile Include="Entities\Pet.cs" />
     <Compile Include="PetOwnerConstants.cs" />
-    <Compile Include="Models\DogOwnerListViewModel.cs" />
+    <Compile Include="Models\PetOwnerListViewModel.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RobsDogsController.cs" />
     <Compile Include="Data\PetOwnerRepository.cs" />
@@ -205,15 +205,14 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Entities\PetOwner.cs" />
-    <Compile Include="Models\DogOwnerViewModel.cs" />
-    <Compile Include="Models\IDogOwnerListViewModel.cs" />
-    <Compile Include="Models\PetType.cs" />
+    <Compile Include="Models\PetOwnerViewModel.cs" />
+    <Compile Include="Models\IPetOwnerListViewModel.cs" />
     <Compile Include="Models\PetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PetOwnerService.cs" />
     <Compile Include="Services\IPetOwnerService.cs" />
     <Compile Include="Services\PetOwnerModel.cs" />
-    <Compile Include="ViewModelMappers\DogOwnerViewModelMapper.cs" />
+    <Compile Include="ViewModelMappers\PetOwnerViewModelMapper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

@@ -11,12 +11,12 @@ namespace Ui.Tests.Data
     [TestClass]
     public class PetOwnerRepositoryTests
     {
-        public Mock<IDbData> mockData;
+        public Mock<IDbContext> mockData;
         public PetOwnerRepository petOwnerRepo;
         [TestInitialize]
         public void Setup()
         {
-            mockData = new Mock<IDbData>();
+            mockData = new Mock<IDbContext>();
             petOwnerRepo = new PetOwnerRepository(mockData.Object);
         }
 
@@ -88,7 +88,7 @@ namespace Ui.Tests.Data
         public void SuccessfullyDeletingPetOwner()
         {
             var existingPetOwner = new PetOwner { OwnerId = 1, PetOwnerId = 1, PetId = 1 };
-            var existingPetOwner2 = new PetOwner { OwnerId = 1, PetOwnerId = 2, PetId = 2 };
+            var existingPetOwner2 = new PetOwner { OwnerId = 2, PetOwnerId = 2, PetId = 2 };
             mockData.Setup(x => x.PetOwners).Returns(new List<PetOwner> { existingPetOwner, existingPetOwner2 });
             mockData.Setup(x => x.SaveChanges()).Returns(true);
             var result = petOwnerRepo.DeletePetOwner(2, 2);

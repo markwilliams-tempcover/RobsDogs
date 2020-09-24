@@ -1,4 +1,4 @@
-﻿@model Ui.Models.DogOwnerListViewModel
+﻿@model Ui.Models.IPetOwnerListViewModel
 
 <h1>Rob's dogs</h1>
 
@@ -8,13 +8,14 @@
 
 <p>Rob's first dog is named Willow, he now has two additional dogs named "Nook" and "Sox". </p>
 
-<p>Please improve this system to display the name of all three of Rob's dogs in the dog names column in the table below. Please consider:
-	<ul>
-		<li>Any need for new entities</li>
-		<li>Relationships between entities</li>
-		<li>SOLID principles</li>
-		<li>TDD</li>
-	</ul>
+<p>
+    Please improve this system to display the name of all three of Rob's dogs in the dog names column in the table below. Please consider:
+    <ul>
+        <li>Any need for new entities</li>
+        <li>Relationships between entities</li>
+        <li>SOLID principles</li>
+        <li>TDD</li>
+    </ul>
 </p>
 
 <p>You do not need to interact with a database, feel free to edit the data returned in the file named "Ui\Data\DogOwnerRepository.cs", changing the entity structure as required. </p>
@@ -22,19 +23,27 @@
 <p>Moq is installed into Ui.Tests to allow you to develop the unit testing in the Ui, feel free to add Moq anywhere else you see fit.</p>
 
 <table class="table">
-	<thead>
-	<tr>
-		<th>Dog owner name</th>
-		<th>Dog names</th>
-	</tr>
-	</thead>
-	<tbody>
-	@foreach (var dogOwner in Model.DogOwnerViewModels)
-	{
-		<tr>
-			<td>@dogOwner.OwnerName</td>
-			<td>@dogOwner.DogNames.Single()</td>
-		</tr>
-	}
-	</tbody>
+    <thead>
+        <tr>
+            <th>Dog owner name</th>
+            <th>Dog names</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var dogOwner in Model.PetOwnerViewModels)
+        {
+            <tr>
+                <td>@dogOwner.OwnerName</td>
+                <td>
+                    <ul>
+                        @foreach (var pet in @dogOwner.Pets)
+                        {
+                            <li>@pet.Name is a cute @pet.PetType.ToString() who is @pet.AgeInYears year(s) old </li>
+
+                        }
+                    </ul>
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

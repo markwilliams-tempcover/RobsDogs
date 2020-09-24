@@ -10,8 +10,8 @@ namespace Ui.Data
 {
     public class OwnerRepository : IOwnerRepository
     {
-        private IDbData _dbData;
-        public OwnerRepository(IDbData dbData)
+        private IDbContext _dbData;
+        public OwnerRepository(IDbContext dbData)
         {
             this._dbData = dbData;//?? throw new ArgumentNullException(nameof(dbData));
             //data in new DB

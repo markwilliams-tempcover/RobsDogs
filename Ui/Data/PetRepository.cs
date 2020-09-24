@@ -5,10 +5,10 @@ using System.Web;
 using Ui.Entities;
 namespace Ui.Data
 {
-    public class PetRepository
+    public class PetRepository : IPetRepository
     {
-        private IDbData _dbData;
-        public PetRepository(IDbData dbData)
+        private IDbContext _dbData;
+        public PetRepository(IDbContext dbData)
         {
             this._dbData = dbData;// throw new ArgumentNullException(nameof(dbData));
             //data in new DB
@@ -37,7 +37,11 @@ namespace Ui.Data
         }
         public List<Pet> GetAllPets()
         {
-            throw new NotImplementedException();
+            if (_dbData.Pets == null)
+            {
+                return new List<Pet>();
+            }
+            return _dbData.Pets.ToList();
         }
     }
     public interface IPetRepository

@@ -10,8 +10,8 @@ namespace Ui.Data
 
     public class PetOwnerRepository : IPetOwnerRepository
     {
-        private IDbData _dbData;
-        public PetOwnerRepository(IDbData dbData)
+        private IDbContext _dbData;
+        public PetOwnerRepository(IDbContext dbData)
         {
             this._dbData = dbData;// throw new ArgumentNullException(nameof(dbData));
             //data in new DB
