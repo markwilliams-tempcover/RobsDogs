@@ -22,17 +22,17 @@
 <p>StructureMap is installed and configured to use default conventions (drop the I) and scan all assemblies so you will not have to configure any DI container.</p>
 <p>Moq is installed into Ui.Tests to allow you to develop the unit testing in the Ui, feel free to add Moq anywhere else you see fit.</p>
 
-<table class="table">
+<table class="table table-dark table-hover table-striped "> 
     <thead>
         <tr>
-            <th>Dog owner name</th>
-            <th>Dog names</th>
+            <th scope="col">Owner name</th>
+            <th scope="col">Pets</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var dogOwner in Model.PetOwnerViewModels)
         {
-            <tr>
+            <tr scope="row">
                 <td>@dogOwner.OwnerName</td>
                 <td>
                     <ul>
