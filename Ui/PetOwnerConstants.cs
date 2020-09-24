@@ -7,6 +7,7 @@ namespace Ui
 {
     public static class PetOwnerConstants
     {
+        public const int DefaultPageSizeForGrid = 50;
         public static class ErrorMessages
         {
             public static class Owner

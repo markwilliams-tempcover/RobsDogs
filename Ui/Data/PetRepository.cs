@@ -10,7 +10,7 @@ namespace Ui.Data
         private IDbData _dbData;
         public PetRepository(IDbData dbData)
         {
-            this._dbData = dbData;
+            this._dbData = dbData;// throw new ArgumentNullException(nameof(dbData));
             //data in new DB
         }
         public bool AddPet(Pet newPet)

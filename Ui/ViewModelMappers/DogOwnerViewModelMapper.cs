@@ -12,15 +12,15 @@ namespace Ui.ViewModelMappers
 
     public class DogOwnerViewModelMapper : IDogOwnerViewModelMapper
     {
-        IDogOwnerService _dogOwnerService;
-        public DogOwnerViewModelMapper(IDogOwnerService dogOwnerService)
+        IPetOwnerService _dogOwnerService;
+        public DogOwnerViewModelMapper(IPetOwnerService dogOwnerService)
         {
             _dogOwnerService = dogOwnerService;
 
         }
         public DogOwnerListViewModel GetAllDogOwners()
         { 
-            var dogOwners = _dogOwnerService.GetAllDogOwners();
+            var dogOwners = _dogOwnerService.GetAllPetOwners(null,null);
             var dogOwnerListViewModel = new DogOwnerListViewModel
             {
                 DogOwnerViewModels = dogOwners.Select(e => new DogOwnerViewModel

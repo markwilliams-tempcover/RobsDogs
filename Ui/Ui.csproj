@@ -210,8 +210,9 @@
     <Compile Include="Models\PetType.cs" />
     <Compile Include="Models\PetViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DogOwnerService.cs" />
-    <Compile Include="Services\IDogOwnerService.cs" />
+    <Compile Include="Services\PetOwnerService.cs" />
+    <Compile Include="Services\IPetOwnerService.cs" />
+    <Compile Include="Services\PetOwnerModel.cs" />
     <Compile Include="ViewModelMappers\DogOwnerViewModelMapper.cs" />
   </ItemGroup>
   <ItemGroup>
