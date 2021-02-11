@@ -1,5 +1,4 @@
 # RobsDogs
 - Instructions are displayed when running the UI Project. 
-- Please clone or fork your specific branch and perform a pull request once happy. 
-- If you struggle with permissions, please keep the code base local and we will do a screen share as part of the interview.
+- Please clone a copy to be worked on locally, which you use to screen share as part of the interview.
 
